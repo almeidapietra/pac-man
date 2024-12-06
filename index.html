@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Game</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Garante que o foco fique apenas no canvas */
+        *:focus:not(#gameCanvas) {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <div class="score" tabindex="-1">Pontuação: <span id="score">0</span></div>
+            <div class="lives" tabindex="-1">Vidas: <span id="lives">3</span></div>
+        </div>
+        <canvas id="gameCanvas" tabindex="1"></canvas>
+        <div class="instructions">Use as setas do teclado para mover o Pac-Man</div>
+        <div id="gameOver" class="modal hidden">
+            <h2>Fim de Jogo!</h2>
+            <p>Pontuação Final: <span id="finalScore">0</span></p>
+            <button onclick="restartGame()">Jogar Novamente</button>
+        </div>
+        <div id="gameWin" class="modal hidden">
+            <h2>Você Venceu!</h2>
+            <p>Pontuação Final: <span id="winScore">0</span></p>
+            <button onclick="restartGame()">Jogar Novamente</button>
+        </div>
+    </div>
+    <audio id="eatDotSound" src="sounds/eat-dot.wav"></audio>
+    <audio id="eatGhostSound" src="sounds/eat-ghost.wav"></audio>
+    <audio id="deathSound" src="sounds/death.wav"></audio>
+    <audio id="powerUpSound" src="sounds/power-up.wav"></audio>
+    <script src="game.js"></script>
+</body>
+</html>
